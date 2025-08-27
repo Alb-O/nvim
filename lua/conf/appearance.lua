@@ -24,3 +24,5 @@ vim.opt.guicursor = "n-v-c:block,i:ver25,r-cr-o:hor20"
 
 -- Remove command line height
 vim.o.cmdheight = 0
+
+require('mini.icons').setup()

@@ -5,8 +5,8 @@
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
   "fzf-lua": { "branch": "main", "commit": "9482523478aa4f41322e55c6e589731b5d4a177a" },
   "lualine.nvim": { "branch": "master", "commit": "b8c23159c0161f4b89196f74ee3a6d02cdc3a955" },
+  "mini.icons": { "branch": "main", "commit": "b8f6fa6f5a3fd0c56936252edcd691184e5aac0c" },
   "nvim-lspconfig": { "branch": "master", "commit": "3d97ec4174bcc750d70718ddedabf150536a5891" },
-  "nvim-web-devicons": { "branch": "master", "commit": "4ae47f4fb18e85b80e84b729974fe65483b06aaf" },
   "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }

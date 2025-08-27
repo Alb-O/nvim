@@ -23,3 +23,7 @@ vim.o.wildmenu = false
 
 -- Set global status line
 vim.opt.laststatus = 3
+
+-- Enable persistent undo
+vim.opt.undofile = true
+
