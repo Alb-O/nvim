@@ -5,6 +5,4 @@ return {
       require('lsp').setup()
     end,
   },
-  require('plugins.colorscheme'),
-  require('plugins.lualine'),
 }

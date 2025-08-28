@@ -1,4 +1,3 @@
--- Editor settings
 -- Enable line numbers
 vim.o.relativenumber = true
 vim.o.number = true
@@ -8,9 +7,6 @@ vim.o.signcolumn = 'yes'
 
 -- Hide ~ on empty lines
 vim.o.fillchars = 'eob: '
-
--- Enable mouse support
-vim.o.mouse = 'a'
 
 -- Tabs and indentation
 vim.o.smartindent = true
@@ -27,3 +23,5 @@ vim.opt.laststatus = 3
 -- Enable persistent undo
 vim.opt.undofile = true
 
+-- Enable hidden buffers
+vim.o.hidden = true
