@@ -12,17 +12,29 @@ return {
         { desc = "Toggle horizontal terminal" })
       vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
       vim.keymap.set("n", "<leader>tq", "<cmd>ToggleTermToggleAll!<CR>", { desc = "Toggle all terminals" })
+      -- Exit terminal mode with Esc
+      vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
       local Terminal = require('toggleterm.terminal').Terminal
-      local lazygit  = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+      local lazygit  = Terminal:new({
+        cmd = "lazygit",
+        hidden = true,
+        direction = "float",
+        float_opts = {
+          border = "none",
+        },
+        -- Allow escape key to be sent to lazygit, rather than exiting terminal mode
+        on_open = function(term)
+          vim.api.nvim_buf_set_keymap(term.bufnr, "t", "<Esc>", "<Esc>", { noremap = true, silent = true })
+        end,
+      })
 
       function _lazygit_toggle()
         lazygit:toggle()
       end
 
-      vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
-
-      -- Exit terminal mode with Esc
-      vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+      vim.keymap.set("n", "<leader>G", "<cmd>lua _lazygit_toggle()<CR>",
+        { noremap = true, silent = true, desc = "Toggle Lazygit" })
     end
   },
 }
