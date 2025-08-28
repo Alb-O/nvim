@@ -20,7 +20,10 @@ return {
         cmd = "lazygit",
         hidden = true,
         direction = "float",
+        -- Fullscreen lazygit
         float_opts = {
+          width = vim.o.columns,
+          height = vim.o.lines,
           border = "none",
         },
         -- Allow escape key to be sent to lazygit, rather than exiting terminal mode
