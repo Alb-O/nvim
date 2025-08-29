@@ -25,3 +25,8 @@ vim.opt.undofile = true
 
 -- Enable hidden buffers
 vim.o.hidden = true
+
+vim.diagnostic.config {
+  enable = true,
+  virtual_lines = { current_line = true, }
+}
