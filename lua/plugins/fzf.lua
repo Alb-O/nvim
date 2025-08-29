@@ -10,7 +10,6 @@ return {
         border = "NonText",
         preview_border = "NonText",
       },
-      fzf_bin = 'sk',
       defaults = {
         git_icons = true,
       },
