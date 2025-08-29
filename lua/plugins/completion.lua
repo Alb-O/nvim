@@ -20,13 +20,13 @@ return {
 
         term = {
           enabled = true,
-          sources = { },
+          sources = {},
         },
 
         keymap = {
           preset = 'default',
-          -- tab to confirm selection
-          ['<Tab>'] = { 'accept' },
+          -- tab to confirm selection when menu is visible, otherwise insert tab
+          ['<Tab>'] = { 'accept', 'fallback' },
         }
       })
     end,

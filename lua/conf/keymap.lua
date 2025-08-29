@@ -6,3 +6,6 @@ vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "Move to left window" })
 vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = "Move to lower window" })
 vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = "Move to upper window" })
 vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = "Move to right window" })
+
+-- Shift+Tab to de-indent in insert mode
+vim.keymap.set("i", "<S-Tab>", "<C-d>", { desc = "De-indent line" })
