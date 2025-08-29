@@ -32,6 +32,7 @@ return {
       vim.keymap.set("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", { desc = "Find content (grep)" })
       vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", { desc = "Find buffers" })
       vim.keymap.set("n", "<leader>fk", "<cmd>FzfLua keymaps<CR>", { desc = "Find keymaps" })
+      vim.keymap.set("n", "<leader>fz", "<cmd>FzfLua zoxide<CR>", { desc = "Find zoxide directories" })
       vim.keymap.set({ "n", "v", "i", }, "<C-x><C-f>",
         function() require("fzf-lua").complete_path() end,
         { silent = true, desc = "Fuzzy complete path" })
