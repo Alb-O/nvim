@@ -30,7 +30,11 @@ now(function()
     vim.o.number = true
     vim.o.relativenumber = true
     vim.o.cursorline = true
+    vim.o.wrap = true
+    vim.o.linebreak = true
     vim.o.laststatus = 3
+    vim.o.numberwidth = 3
+    vim.o.statuscolumn = "%=%{v:virtnum==0 ? (v:relnum ? v:relnum : (v:lnum<10 ? v:lnum . ' ' : v:lnum)) : (v:virtnum>0 ? '↪' : '')}%=%s"
     vim.o.list = true
     vim.o.listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:> " }, ",")
     vim.o.autoindent = true
@@ -51,6 +55,7 @@ now(function()
     vim.o.swapfile = false
     vim.o.shortmess = "csCFSW"
     vim.o.cmdheight = 0
+    vim.opt.winblend = 0
     vim.o.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-blinkwait700-blinkoff125-blinkon125-Cursor/lCursor,r-cr:hor20,o:hor50"
 end)
 
@@ -160,7 +165,8 @@ later(function() require("mini.cursorword").setup() end)
 
 later(function() require("mini.diff").setup({
     view = {
-        style = 'sign'
+        -- style = 'sign',
+        -- signs = { add = '｜', change = '｜', delete = '¦' },
     }
 }) end)
 

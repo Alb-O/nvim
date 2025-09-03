@@ -2,10 +2,12 @@ local M = {}
 
 function M.setup()
     MiniDeps.add({
-      source = 'sainnhe/gruvbox-material',
+      source = 'khoido2003/monokai-v2.nvim',
     })
-
-    vim.cmd[[colorscheme gruvbox-material]]
+    require("monokai-v2").setup({
+        filter = "ristretto",
+    })
+    vim.cmd[[colorscheme monokai-v2]]
 
     -- Inverted selection color
 
