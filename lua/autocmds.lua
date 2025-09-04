@@ -1,28 +1,3 @@
--- Automatically close terminal Buffers when their Process is done
--- vim.api.nvim_create_autocmd("TermClose", {
---     callback = function()
---         vim.cmd("bdelete")
---     end
--- })
-
--- Set local options specifically for terminal buffers
-vim.api.nvim_create_autocmd("TermOpen", {
-  callback = function()
-    vim.opt.number = false
-    vim.opt.relativenumber = false
-    vim.opt.signcolumn = "no"
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufEnter", {
-pattern = "*",
-  callback = function()
-    if vim.bo.buftype == "terminal" then
-      vim.cmd("startinsert")
-    end
-  end,
-})
-
 -- Automatically Split help Buffers to the right
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "help",
@@ -44,6 +19,22 @@ vim.api.nvim_create_autocmd('FileType', {
     local opts = { buffer = event.buf, silent = true }
     vim.keymap.set('n', '<C-j>', '<cmd>cn<CR>zz<cmd>wincmd p<CR>', opts)
     vim.keymap.set('n', '<C-k>', '<cmd>cN<CR>zz<cmd>wincmd p<CR>', opts)
+  end,
+})
+
+-- Show line numbers only in focused window
+vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
+  callback = function()
+    if vim.bo.buftype ~= "terminal" then
+      vim.opt_local.number = true
+      vim.opt_local.relativenumber = true
+    end
+  end,
+})
+vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
   end,
 })
 

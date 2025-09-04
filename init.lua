@@ -55,7 +55,7 @@ now(function()
     vim.o.swapfile = false
     vim.o.shortmess = "csCFSW"
     vim.o.cmdheight = 0
-    vim.opt.winblend = 0
+    vim.o.winblend = 0
     vim.o.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve-t:ver25-blinkwait700-blinkoff125-blinkon125-Cursor/lCursor,r-cr:hor20,o:hor50"
 end)
 
@@ -165,8 +165,8 @@ later(function() require("mini.cursorword").setup() end)
 
 later(function() require("mini.diff").setup({
     view = {
-        -- style = 'sign',
-        -- signs = { add = '｜', change = '｜', delete = '¦' },
+        style = 'sign',
+        signs = { add = '｜', change = '｜', delete = '¦' },
     }
 }) end)
 
@@ -342,34 +342,11 @@ end)
 
 now(function() require("colorscheme").setup() end)
 
-later(function()
-    require("mini.statusline").setup({
-        content = {
-            active = function()
-                local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
-                local git           = MiniStatusline.section_git({ trunc_width = 40 })
-                local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
-                local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
-                local search        = MiniStatusline.section_searchcount({ trunc_width = 75 })
+later(function () require("terminals").setup() end)
 
-                return MiniStatusline.combine_groups({
-                    { hl = mode_hl,                 strings = { mode } },
-                    { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
-                    '%<', -- Mark general truncate point
-                    { hl = 'MiniStatuslineFilename', strings = { filename } },
-                    '%=', -- End left alignment
-                    { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-                    { hl = mode_hl,                  strings = { search, location } },
-                })
-            end,
-            inactive = nil,
-        },
-    })
-end)
+later(function () require("statusline").setup() end)
 
 later(function() require("mini.surround").setup() end)
-
-later(function() require("mini.tabline").setup() end)
 
 later(function() require("mini.trailspace").setup() end)
 
