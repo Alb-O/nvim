@@ -98,6 +98,8 @@
             nil
             lua-language-server
             vscode-json-languageserver
+            rust-analyzer
+            clippy
         ];
       };
 

@@ -342,6 +342,8 @@ end)
 
 now(function() require("colorscheme").setup() end)
 
+now(function() require("lsp").setup() end)
+
 later(function () require("terminals").setup() end)
 
 later(function () require("statusline").setup() end)
@@ -355,7 +357,6 @@ later(function() require("mini.visits").setup() end)
 require("autocmds")
 require("highlights")
 require("keybinds")
-require("lsp")
 
 -- If you want to add additional personal Plugins
 -- add lua/personal.lua as a file and configure what ever you need
