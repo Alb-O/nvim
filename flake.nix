@@ -97,6 +97,7 @@
         general = with pkgs; [
             nil
             lua-language-server
+            vscode-json-languageserver
         ];
       };
 

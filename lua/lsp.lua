@@ -6,6 +6,7 @@
 -- This actually just enables the lsp servers.
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('nil')
+vim.lsp.enable('vscode-json-languageserver')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
