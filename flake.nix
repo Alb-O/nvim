@@ -95,6 +95,8 @@
       # this includes LSPs
       lspsAndRuntimeDeps = {
         general = with pkgs; [
+            nil
+            lua-language-server
         ];
       };
 
