@@ -228,11 +228,62 @@
         "type": "github"
       }
     },
+    "plugins-fzf-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756951679,
+        "narHash": "sha256-x68gfXFRYmJloP8HRotrdK4RvZu2SbGRewrRr7n+URg=",
+        "owner": "ibhagwan",
+        "repo": "fzf-lua",
+        "rev": "f6a570cc42596efb73359fc453061e24abb71d9f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ibhagwan",
+        "repo": "fzf-lua",
+        "type": "github"
+      }
+    },
+    "plugins-fzf-lua-frecency": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756828212,
+        "narHash": "sha256-ClZG5VlD6Yb7pyxoNXp87ZIZiVbeYNT5NaYGJ1DJNtM=",
+        "owner": "elanmed",
+        "repo": "fzf-lua-frecency.nvim",
+        "rev": "d776493e5586c6c203117f2433773538b388a44a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elanmed",
+        "repo": "fzf-lua-frecency.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-monokai-v2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756655167,
+        "narHash": "sha256-q2rwgBKH1GU9W4Apm2xBvKBaq/f6GdYrW0k0av72JvE=",
+        "owner": "khoido2003",
+        "repo": "monokai-v2.nvim",
+        "rev": "de041ebdb7b5242328a1ba5a445d9cf9f717d5b3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "khoido2003",
+        "repo": "monokai-v2.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_2",
+        "plugins-fzf-lua": "plugins-fzf-lua",
+        "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
+        "plugins-monokai-v2": "plugins-monokai-v2",
         "wrapper-manager": "wrapper-manager"
       }
     },

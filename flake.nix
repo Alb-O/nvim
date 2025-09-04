@@ -29,6 +29,20 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
+    # Plugins to clone from upstream instead of nixpkgs
+    plugins-fzf-lua-frecency = {
+      url = "github:elanmed/fzf-lua-frecency.nvim";
+      flake = false;
+    };
+    plugins-fzf-lua = {
+      url = "github:ibhagwan/fzf-lua";
+      flake = false;
+    };
+    plugins-monokai-v2 = {
+      url = "github:khoido2003/monokai-v2.nvim";
+      flake = false;
+    };
+
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
     # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
@@ -95,18 +109,39 @@
       # this includes LSPs
       lspsAndRuntimeDeps = {
         general = with pkgs; [
-            nil
-            lua-language-server
-            vscode-json-languageserver
-            rust-analyzer
-            clippy
+          nil
+          lua-language-server
+          vscode-json-languageserver
+          rust-analyzer
+          clippy
+          # Runtime tools used by config and pickers
+          ripgrep
+          fzf
+          lazygit
+          pwgen
         ];
       };
 
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [ ];
-        general = with pkgs.vimPlugins; [ ];
+        # Plugins provided via custom git sources (from inputs -> pkgs.neovimPlugins)
+        gitPlugins = with pkgs.neovimPlugins; [
+          # Custom plugins added via inputs.plugins-*
+          fzf-lua
+          fzf-lua-frecency
+          monokai-v2
+        ];
+        # Plugins from nixpkgs
+        general = with pkgs.vimPlugins; [
+          mini-nvim
+          noice-nvim
+          nui-nvim
+          nvim-lspconfig
+          lualine-nvim
+          toggleterm-nvim
+          sqlite-lua
+          nvim-notify
+        ];
       };
 
       # not loaded automatically at startup.

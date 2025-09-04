@@ -1,19 +1,14 @@
 local M = {}
 
 function M.setup()
-    MiniDeps.add({
-        source = 'folke/noice.nvim',
-        depends = { 'MunifTanjim/nui.nvim' },
-    })
-
-    require('noice').setup({
-        routes = {
-            {
-                filter = { event = "msg_show" },
-                view = "notify"
-            }
-        },
-            views = {
+  require('noice').setup({
+    routes = {
+      {
+        filter = { event = "msg_show" },
+        view = "notify"
+      }
+    },
+    views = {
       cmdline_popup = {
         border = {
           style = "none",
@@ -25,7 +20,7 @@ function M.setup()
         },
       },
     },
-    })
+  })
 end
 
 return M

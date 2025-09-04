@@ -1,7 +1,7 @@
 -- Automatically Split help Buffers to the right
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "help",
-    command = "wincmd L"
+  pattern = "help",
+  command = "wincmd L"
 })
 
 -- Autosave on Idle
@@ -37,4 +37,3 @@ vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
     vim.opt_local.relativenumber = false
   end,
 })
-
