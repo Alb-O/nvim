@@ -5,12 +5,13 @@
 --     end
 -- })
 
--- Disable Linenumbers in Terminals
-vim.api.nvim_create_autocmd("TermEnter", {
-    callback = function()
-        vim.o.number = false
-        vim.o.relativenumber = false
-    end
+-- Set local options specifically for terminal buffers
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+    vim.opt.signcolumn = "no"
+  end,
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {

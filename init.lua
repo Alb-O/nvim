@@ -34,7 +34,7 @@ now(function()
     vim.o.linebreak = true
     vim.o.laststatus = 3
     vim.o.numberwidth = 3
-    vim.o.statuscolumn = "%=%{v:virtnum==0 ? (v:relnum ? v:relnum : (v:lnum<10 ? v:lnum . ' ' : v:lnum)) : (v:virtnum>0 ? '↪' : '')}%=%s"
+    vim.o.statuscolumn = "%=%{(&number || &relativenumber) && v:virtnum==0 ? (v:relnum ? v:relnum : (v:lnum<10 ? v:lnum . ' ' : v:lnum)) : (v:virtnum>0 ? '↪' : '')}%=%s"
     vim.o.list = true
     vim.o.listchars = table.concat({ "extends:…", "nbsp:␣", "precedes:…", "tab:> " }, ",")
     vim.o.autoindent = true
@@ -56,7 +56,7 @@ now(function()
     vim.o.shortmess = "csCFSW"
     vim.o.cmdheight = 0
     vim.opt.winblend = 0
-    vim.o.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-blinkwait700-blinkoff125-blinkon125-Cursor/lCursor,r-cr:hor20,o:hor50"
+    vim.o.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve-t:ver25-blinkwait700-blinkoff125-blinkon125-Cursor/lCursor,r-cr:hor20,o:hor50"
 end)
 
 now(function()
