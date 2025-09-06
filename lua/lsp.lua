@@ -3,7 +3,6 @@ local M = {}
 function M.setup()
   -- Enable the lsp servers
   vim.lsp.enable('lua_ls')
-  vim.lsp.enable('nil')
   vim.lsp.enable('nixd')
   vim.lsp.enable('vscode-json-languageserver')
 

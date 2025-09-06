@@ -128,7 +128,6 @@
           # this includes LSPs
           lspsAndRuntimeDeps = {
             general = with pkgs; [
-              nil
               nixd
               lua-language-server
               vscode-json-languageserver
