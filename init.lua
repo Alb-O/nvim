@@ -329,6 +329,8 @@ later(function() require("mini.trailspace").setup() end)
 
 later(function() require("mini.visits").setup() end)
 
+later(function() require("md").setup() end)
+
 require("autocmds")
 require("highlights")
 require("keybinds")

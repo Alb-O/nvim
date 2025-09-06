@@ -103,43 +103,48 @@
           # )
         ];
 
-      # see :help nixCats.flake.outputs.categories
-      # and
-      # :help nixCats.flake.outputs.categoryDefinitions.scheme
-      categoryDefinitions =
-        {
-          pkgs,
-          settings,
-          categories,
-          extra,
-          name,
-          mkPlugin,
-          ...
-        }@packageDef:
-        {
-          # to define and use a new category, simply add a new list to a set here,
-          # and later, you will include categoryname = true; in the set you
-          # provide when you build the package using this builder function.
-          # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
+       # see :help nixCats.flake.outputs.categories
+       # and
+       # :help nixCats.flake.outputs.categoryDefinitions.scheme
+       categoryDefinitions =
+         {
+           pkgs,
+           settings,
+           categories,
+           extra,
+           name,
+           mkPlugin,
+           ...
+         }@packageDef:
+         let
+           # Define runtime deps list to avoid duplication
+           runtimeDeps = with pkgs; [
+             nixd
+             lua-language-server
+             vscode-json-languageserver
+             rust-analyzer
+             clippy
+             # Runtime tools used by config and pickers
+             ripgrep
+             fzf
+             lazygit
+             pwgen
+             zk
+           ];
+         in
+         {
+           # to define and use a new category, simply add a new list to a set here,
+           # and later, you will include categoryname = true; in the set you
+           # provide when you build the package using this builder function.
+           # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
 
-          # lspsAndRuntimeDeps:
-          # this section is for dependencies that should be available
-          # at RUN TIME for plugins. Will be available to PATH within neovim terminal
-          # this includes LSPs
-          lspsAndRuntimeDeps = {
-            general = with pkgs; [
-              nixd
-              lua-language-server
-              vscode-json-languageserver
-              rust-analyzer
-              clippy
-              # Runtime tools used by config and pickers
-              ripgrep
-              fzf
-              lazygit
-              pwgen
-            ];
-          };
+           # lspsAndRuntimeDeps:
+           # this section is for dependencies that should be available
+           # at RUN TIME for plugins. Will be available to PATH within neovim terminal
+           # this includes LSPs
+           lspsAndRuntimeDeps = {
+             general = runtimeDeps;
+           };
 
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = {
@@ -160,6 +165,7 @@
               toggleterm-nvim
               sqlite-lua
               nvim-notify
+              zk-nvim
             ];
           };
 
@@ -301,6 +307,13 @@
           # Expose `nvim-wrapped` that bundles this repo's Lua as a single binary
           nvim-wrapped = wmEval.config.wrappers."nvim-wrapped".wrapped;
           default = wmEval.config.wrappers."nvim-wrapped".wrapped;
+          # Expose runtime tools as a separate package
+          runtime-tools = pkgs.buildEnv {
+            name = "runtime-tools";
+            paths = let
+              catDefs = categoryDefinitions { inherit pkgs; settings = {}; categories = { general = true; }; extra = {}; name = "runtime-tools"; mkPlugin = null; };
+            in catDefs.lspsAndRuntimeDeps.general;
+          };
         };
 
         # choose your package for devShell
