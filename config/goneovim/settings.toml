@@ -1,0 +1,8 @@
+## Minimal GoNeovim configuration (bundled via wrapper-manager)
+[Editor]
+RestoreWindowGeometry = true
+StartMaximizedWindow = true
+FontSize = 16
+
+[SideBar]
+Visible = true
