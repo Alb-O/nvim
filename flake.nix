@@ -1,5 +1,5 @@
 {
-  description = "Neovim flake (flakelight style) with goneovim placeholder";
+  description = "Neovim flake (flakelight style)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
