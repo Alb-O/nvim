@@ -147,15 +147,6 @@ end)
 
 later(function() require("mini.cursorword").setup() end)
 
-later(function()
-  require("mini.diff").setup({
-    view = {
-      style = 'sign',
-      signs = { add = '｜', change = '｜', delete = '¦' },
-    }
-  })
-end)
-
 later(function() require("mini.doc").setup() end)
 
 later(function() require("mini.extra").setup() end)
@@ -175,7 +166,8 @@ end)
 
 later(function() require("mini.fuzzy").setup() end)
 
-later(function() require("mini.git").setup() end)
+-- Gitsigns and Git helpers
+later(function() require("git").setup() end)
 
 later(function()
   local hipatterns = require("mini.hipatterns")

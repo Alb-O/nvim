@@ -78,12 +78,6 @@ function M.setup()
     { nowait = true, desc = 'Search Lines' })
 
   -- ╔═══════════════════╗
-  -- ║    Git Keymaps    ║
-  -- ╚═══════════════════╝
-  keymap("n", "<leader>gb", function() require('fzf-lua').git_bcommits() end,
-    { desc = 'Git Log this File' })
-
-  -- ╔═══════════════════╗
   -- ║    LSP Keymaps    ║
   -- ╚═══════════════════╝
   keymap("n", "<leader>ls", function() require('fzf-lua').lsp_document_symbols() end,

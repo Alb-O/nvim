@@ -32,6 +32,7 @@ let
         fzf-lua
         fzf-lua-frecency
         monokai-v2
+        gitsigns
       ];
       # Core plugins from nixpkgs (needed by your Lua config)
       startupPlugins.general = with pkgs.vimPlugins; [
@@ -44,6 +45,7 @@ let
         sqlite-lua
         nvim-notify
         zk-nvim
+        vim-fugitive
       ];
     };
 

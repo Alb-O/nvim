@@ -117,25 +117,6 @@ else
 end
 
 -- ╔═══════════════════╗
--- ║    Git Keymaps    ║
--- ╚═══════════════════╝
-keymap("n", "<leader>gl", function()
-  split_sensibly()
-  vim.cmd('terminal lazygit')
-end, { desc = 'Lazygit' })
-keymap("n", "<leader>gp", "<cmd>:Git pull<cr>", { desc = 'Git Push' })
-keymap("n", "<leader>gs", "<cmd>:Git push<cr>", { desc = 'Git Pull' })
-keymap("n", "<leader>ga", "<cmd>:Git add .<cr>", { desc = 'Git Add All' })
-keymap("n", "<leader>gc", '<cmd>:Git commit -m "Autocommit from MVIM"<cr>',
-  { desc = 'Git Autocommit' })
-keymap("", "<leader>gd", function() require('mini.diff').toggle_overlay() end,
-  { desc = 'Visual Diff Buffer' })
-keymap("", "<leader>gh", function() require('mini.git').show_range_history() end,
-  { desc = 'Git Range History' })
-keymap("n", "<leader>gx", function() require('mini.git').show_at_cursor() end,
-  { desc = 'Git Context Cursor' })
-
--- ╔═══════════════════╗
 -- ║    LSP Keymaps    ║
 -- ╚═══════════════════╝
 keymap("n", "<leader>ld", function() vim.lsp.buf.definition() end,

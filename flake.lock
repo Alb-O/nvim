@@ -294,6 +294,22 @@
         "type": "github"
       }
     },
+    "plugins-gitsigns": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1755014582,
+        "narHash": "sha256-zBUrqL+00Y8j4eVNAgI0nYn2i35zhQo2BVl4mL1cgfs=",
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "rev": "6e3c66548035e50db7bd8e360a29aec6620c3641",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "type": "github"
+      }
+    },
     "plugins-monokai-v2": {
       "flake": false,
       "locked": {
@@ -318,6 +334,7 @@
         "nixpkgs": "nixpkgs_3",
         "plugins-fzf-lua": "plugins-fzf-lua",
         "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
+        "plugins-gitsigns": "plugins-gitsigns",
         "plugins-monokai-v2": "plugins-monokai-v2",
         "wrapper-manager": "wrapper-manager"
       }

@@ -2,7 +2,9 @@
 [Editor]
 RestoreWindowGeometry = true
 StartMaximizedWindow = true
-FontSize = 16
-
-[SideBar]
-Visible = true
+FontSize = 14
+SmoothScroll = true
+[Cursor]
+SmoothMove = true
+[MiniMap]
+visible = true
