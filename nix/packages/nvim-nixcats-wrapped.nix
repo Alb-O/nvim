@@ -34,8 +34,9 @@ let
         monokai-v2
         gitsigns
       ];
-      # Core plugins from nixpkgs (needed by your Lua config)
+      # Core plugins from nixpkgs
       startupPlugins.general = with pkgs.vimPlugins; [
+        (nvim-treesitter.withAllGrammars)
         mini-nvim
         noice-nvim
         nui-nvim
@@ -46,6 +47,8 @@ let
         nvim-notify
         zk-nvim
         vim-fugitive
+        tardis-nvim
+        plenary-nvim
       ];
     };
 
