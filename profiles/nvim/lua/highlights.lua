@@ -35,3 +35,4 @@ vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
     mod_hl("CursorLine", { link = "CursorColumn" })
   end
 })
+

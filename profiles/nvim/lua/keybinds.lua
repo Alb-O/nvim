@@ -149,4 +149,5 @@ keymap("n", "<leader>bs", split_sensibly, { desc = "Alternate buffers" })
 --  ─( Change Colorscheme )─────────────────────────────────────────────
 keymap("n", "<leader>ud", "<cmd>set background=dark<cr>", { desc = 'Dark Background' })
 keymap("n", "<leader>ub", "<cmd>set background=light<cr>", { desc = 'Light Background' })
-keymap("n", "<leader>um", "<cmd>lua MiniMap.open()<cr>", { desc = 'Mini Map' })
+-- Minimap keybind intentionally omitted for profile cleanliness
+

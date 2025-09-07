@@ -28,7 +28,7 @@ function M.setup()
 
   -- Diagnostics
   vim.diagnostic.config({
-    virtual_lines = {
+    virtual_text = {
       -- Only show virtual line diagnostics for the current cursor line
       current_line = true,
     },

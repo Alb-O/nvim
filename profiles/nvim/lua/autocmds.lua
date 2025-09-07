@@ -37,3 +37,4 @@ vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
     vim.opt_local.relativenumber = false
   end,
 })
+

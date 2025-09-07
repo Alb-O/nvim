@@ -1,6 +1,9 @@
 { inputs, lib, system, ... }@pkgs:
 let
-  fullPkgs = inputs.nixpkgs.legacyPackages.${system};
+  fullPkgs = import inputs.nixpkgs {
+    inherit system;
+    overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
+  };
   luaPath = ../../.;
   wm = inputs.wrapper-manager.lib {
     pkgs = fullPkgs;
