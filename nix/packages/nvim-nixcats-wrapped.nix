@@ -75,9 +75,8 @@ let
 
   nvimPkg = nixCatsBuilder "nvim";
 
-  # Use wrapper-manager to inject XDG config path and app name
+  # Use wrapper-manager to add runtime site and flags
   fullPkgs = inputs.nixpkgs.legacyPackages.${system};
-  configLink = fullPkgs.linkFarm "xdg-config" { "nvim" = luaPath; };
   wm = inputs.wrapper-manager.lib {
     pkgs = fullPkgs;
     inherit lib;
@@ -85,12 +84,8 @@ let
       {
         wrappers.nvim-nixcats = {
           basePackage = nvimPkg;
-          # Make sure Neovim sees the nixCats site under share/nvim/site
-          extraWrapperFlags = "--prefix XDG_DATA_DIRS : ${nvimPkg}/share";
-          env = {
-            XDG_CONFIG_HOME = { value = configLink; force = true; };
-            NVIM_APPNAME = { value = "nvim"; force = true; };
-          };
+          # Ensure Neovim discovers plugins from nixCats' site dir and load our init.lua via -u
+          extraWrapperFlags = "--prefix XDG_DATA_DIRS : ${nvimPkg}/share --add-flags -u --add-flags ${luaPath}/init.lua";
         };
       }
     ];

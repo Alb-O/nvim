@@ -6,11 +6,8 @@ let
   # Use the nixCats-built Neovim package to source plugins from its share/nvim/site
   nvimNixCats = import ./nvim-nixcats-wrapped.nix { inherit inputs lib system; };
 
-  # XDG config directory that contains goneovim/settings.toml and Neovim config
-  configLink = fullPkgs.linkFarm "xdg-config" {
-    "goneovim" = ../../config/goneovim;
-    "nvim" = ../..;
-  };
+  # XDG config directory for goneovim only (avoid overriding Neovim config)
+  configLink = fullPkgs.linkFarm "xdg-config" { "goneovim" = ../../config/goneovim; };
 
   wm = inputs.wrapper-manager.lib {
     pkgs = fullPkgs;
@@ -21,12 +18,11 @@ let
           basePackage = goneovimBase;
           # Ensure Neovim can discover site/pack from nixCats
           extraWrapperFlags = "--prefix XDG_DATA_DIRS : ${nvimNixCats}/share";
-          # Ensure the spawned Neovim comes from our nixCats build
+          # Ensure the spawned Neovim comes from our nixCats build (with -u flags baked in)
           pathAdd = [ nvimNixCats ];
           env = {
-            # Ensure both goneovim and Neovim read from our bundled configs
+            # Only set XDG for goneovim itself
             XDG_CONFIG_HOME = { value = configLink; force = true; };
-            NVIM_APPNAME = { value = "nvim"; force = true; };
           };
         };
       }

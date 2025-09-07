@@ -1,9 +1,7 @@
 { inputs, lib, system, ... }@pkgs:
 let
   fullPkgs = inputs.nixpkgs.legacyPackages.${system};
-  configLink = fullPkgs.linkFarm "xdg-config" {
-    "nvim" = ../../.;
-  };
+  luaPath = ../../.;
   wm = inputs.wrapper-manager.lib {
     pkgs = fullPkgs;
     inherit lib;
@@ -11,16 +9,7 @@ let
       {
         wrappers.nvim = {
           basePackage = fullPkgs.neovim;
-          env = {
-            XDG_CONFIG_HOME = {
-              value = configLink;
-              force = true;
-            };
-            NVIM_APPNAME = {
-              value = "nvim";
-              force = true;
-            };
-          };
+          extraWrapperFlags = "--add-flags -u --add-flags ${luaPath}/init.lua";
         };
       }
     ];
