@@ -1,6 +1,5 @@
-vim.o.background = 'dark'
 vim.o.winborder = 'single'
-vim.cmd 'colorscheme vscode'
+vim.cmd 'colorscheme gruvdark'
 vim.g.mapleader = ' '
 vim.o.number = true
 vim.o.relativenumber = true

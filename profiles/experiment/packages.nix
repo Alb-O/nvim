@@ -6,6 +6,7 @@
     general = (with pkgs.vimPlugins; [
       hardtime-nvim
       vscode-nvim
+      gruvdark
       blink-cmp
       friendly-snippets
       indent-blankline-nvim

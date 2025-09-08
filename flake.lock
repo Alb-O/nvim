@@ -310,6 +310,22 @@
         "type": "github"
       }
     },
+    "plugins-gruvdark": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757267578,
+        "narHash": "sha256-9JwfFI8vvM7C/CursHBVS4SqdaehXlSN2G4WxW5lB4s=",
+        "owner": "darianmorat",
+        "repo": "gruvdark.nvim",
+        "rev": "7f6d189f17cb36cc16f45113e5a76c2c33ce53a2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "darianmorat",
+        "repo": "gruvdark.nvim",
+        "type": "github"
+      }
+    },
     "plugins-monokai-v2": {
       "flake": false,
       "locked": {
@@ -367,6 +383,7 @@
         "plugins-fzf-lua": "plugins-fzf-lua",
         "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
         "plugins-gitsigns": "plugins-gitsigns",
+        "plugins-gruvdark": "plugins-gruvdark",
         "plugins-monokai-v2": "plugins-monokai-v2",
         "plugins-nvim-notify": "plugins-nvim-notify",
         "plugins-zk-nvim": "plugins-zk-nvim",
