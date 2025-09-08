@@ -5,11 +5,15 @@
   startupPlugins = {
     general = (with pkgs.vimPlugins; [
       hardtime-nvim
+      which-key-nvim
       vscode-nvim
       gruvdark
       blink-cmp
       friendly-snippets
       indent-blankline-nvim
+      dashboard-nvim
+      fzf-lua
+      fzf-lua-frecency
     ]);
   };
 }
