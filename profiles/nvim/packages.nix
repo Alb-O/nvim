@@ -25,9 +25,14 @@
       toggleterm-nvim
       sqlite-lua
       nvim-notify
-      zk-nvim
       vim-fugitive
       plenary-nvim
-    ]) ++ (with pkgs.vimPlugins; [ fzf-lua fzf-lua-frecency monokai-v2 gitsigns ]);
+    ]) ++ (with pkgs.vimPlugins; [
+      fzf-lua
+      fzf-lua-frecency
+      monokai-v2
+      gitsigns
+      zk-nvim
+    ]);
   };
 }

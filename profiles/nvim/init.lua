@@ -264,4 +264,3 @@ require("keybinds")
 -- add lua/personal.lua as a file and configure what ever you need
 local path_modules = vim.fn.stdpath("config") .. "/lua/"
 if vim.uv.fs_stat(path_modules .. "personal.lua") then require("personal") end
-

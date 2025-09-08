@@ -326,6 +326,38 @@
         "type": "github"
       }
     },
+    "plugins-nvim-notify": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757190131,
+        "narHash": "sha256-h7STMjY+CBTqBkIDJXgtJz4WhNeQ02ES2Jesi3jZXeM=",
+        "owner": "rcarriga",
+        "repo": "nvim-notify",
+        "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rcarriga",
+        "repo": "nvim-notify",
+        "type": "github"
+      }
+    },
+    "plugins-zk-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757082265,
+        "narHash": "sha256-eNrDRzH2QHrug2J0rkVJd/TWfIfXu2teE3OAqSje6ss=",
+        "owner": "mickael-menu",
+        "repo": "zk-nvim",
+        "rev": "f079de79b4eb489861a41430ca30d705cb4041fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mickael-menu",
+        "repo": "zk-nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flakelight": "flakelight",
@@ -336,6 +368,8 @@
         "plugins-fzf-lua-frecency": "plugins-fzf-lua-frecency",
         "plugins-gitsigns": "plugins-gitsigns",
         "plugins-monokai-v2": "plugins-monokai-v2",
+        "plugins-nvim-notify": "plugins-nvim-notify",
+        "plugins-zk-nvim": "plugins-zk-nvim",
         "wrapper-manager": "wrapper-manager"
       }
     },

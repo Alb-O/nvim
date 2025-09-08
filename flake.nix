@@ -14,8 +14,10 @@
     # Git plugin sources (bundled via nixCats standardPluginOverlay)
     plugins-fzf-lua-frecency = { url = "github:elanmed/fzf-lua-frecency.nvim"; flake = false; };
     plugins-fzf-lua = { url = "github:ibhagwan/fzf-lua"; flake = false; };
+    plugins-zk-nvim = { url = "github:mickael-menu/zk-nvim"; flake = false; };
     plugins-monokai-v2 = { url = "github:khoido2003/monokai-v2.nvim"; flake = false; };
     plugins-gitsigns = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
+    plugins-nvim-notify = { url = "github:rcarriga/nvim-notify"; flake = false; };
   };
 
   outputs = { flakelight, ... }@inputs:
