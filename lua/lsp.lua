@@ -16,6 +16,22 @@ function M.setup()
   vim.lsp.enable('vscode-json-languageserver')
   vim.lsp.enable('rust_analyzer')
 
+  -- Configure conform.nvim for formatting
+  require('conform').setup({
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      nix = { 'nixpkgs-fmt' },
+      json = { 'prettier' },
+      jsonc = { 'prettier' },
+      markdown = { 'prettier' },
+      rust = { 'rustfmt', lsp_format = 'fallback' },
+    },
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_format = 'fallback',
+    },
+  })
+
   vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
       local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -27,13 +43,6 @@ function M.setup()
         end)
       end
     end,
-  })
-
-  -- Format on save
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    callback = function()
-      vim.lsp.buf.format({ async = false })
-    end
   })
 
   -- Diagnostics

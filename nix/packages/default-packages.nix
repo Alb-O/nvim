@@ -8,6 +8,11 @@
     ripgrep
     rust-analyzer
     clippy
+    # Formatters for conform.nvim
+    stylua
+    nixpkgs-fmt
+    prettier
+    rustfmt
   ];
 
   startupPlugins = {
@@ -15,6 +20,7 @@
       (nvim-treesitter.withAllGrammars)
       nvim-lspconfig
       plenary-nvim
+      conform-nvim
     ];
   };
 }

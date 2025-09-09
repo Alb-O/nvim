@@ -3,24 +3,28 @@
 This repository builds multiple Neovim binaries from a single codebase. Each binary uses a different config “profile” detected from the `profiles/` folder.
 
 ## Quick Start
+
 - Build everything: `nix build -L .`
 - Run one of the generated binaries in `result/bin`:
-  - `nvim`        → profile `nvim`
+  - `nvim` → profile `nvim`
   - `nvim-vanilla` → profile `vanilla`
   - `nvim-experiment` → profile `experiment`
 
 ## Profiles
+
 - A profile is a directory under `profiles/<name>`.
 - On build, each profile becomes a binary:
-  - `profiles/nvim`       → `nvim`
-  - `profiles/<name>`     → `nvim-<name>`
+  - `profiles/nvim` → `nvim`
+  - `profiles/<name>` → `nvim-<name>`
 - Lua entrypoint: `profiles/<name>/init.lua` (loads your config for that profile).
 - The root `init.lua` is a tiny bootstrap that adds this repo to `runtimepath` and loads the active profile.
 
 ## Per‑Profile Packages (Nix)
+
 - Optional file: `profiles/<name>/packages.nix`
 - Declares runtime tools and plugins for that profile only.
 - Schema:
+
   ```nix
   { pkgs, ... }:
   {
@@ -38,9 +42,11 @@ This repository builds multiple Neovim binaries from a single codebase. Each bin
     };
   }
   ```
+
 - If `packages.nix` is missing, a minimal default is used (only `nvim-lspconfig` and basic LSP tools).
 
 ## Add/Remove a Profile
+
 - Add:
   - `mkdir -p profiles/mysetup/lua`
   - Add `profiles/mysetup/init.lua` (your Lua config)
@@ -50,7 +56,7 @@ This repository builds multiple Neovim binaries from a single codebase. Each bin
   - `rm -r profiles/mysetup` and rebuild.
 
 ## Notes
+
 - The active profile name is exported to Neovim as `NVIM_PROFILE`.
 - Shared/global Lua (like `lua/lsp.lua` and the `lsp/` folder) remains available to all profiles.
 - No plugin manager is used at runtime; plugins are provided by Nix.
-

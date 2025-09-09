@@ -108,13 +108,9 @@ keymap("n", "<S-l>", "<cmd>bnext<cr>", { desc = 'Next Buffer' })
 keymap("n", "<S-h>", "<cmd>bprevious<cr>", { desc = 'Previous Buffer' })
 keymap("n", "<TAB>", "<C-^>", { desc = "Alternate buffers" })
 -- Format Buffer
--- With and without LSP
-if vim.tbl_isempty(vim.lsp.get_clients()) then
-  keymap("n", "<leader>bf", function() vim.lsp.buf.format() end,
-    { desc = 'Format Buffer' })
-else
-  keymap("n", "<leader>bf", "gg=G<C-o>", { desc = 'Format Buffer' })
-end
+-- Format buffer using conform.nvim (with LSP fallback)
+keymap("n", "<leader>bf", function() require('conform').format({ async = true, lsp_format = "fallback" }) end,
+  { desc = 'Format Buffer' })
 
 -- ╔═══════════════════╗
 -- ║    LSP Keymaps    ║
