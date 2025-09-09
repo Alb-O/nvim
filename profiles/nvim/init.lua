@@ -242,8 +242,6 @@ end)
 
 now(function() require("colorscheme").setup() end)
 
-now(function() require("lsp").setup() end)
-
 later(function() require("terminals").setup() end)
 
 later(function() require("statusline").setup() end)

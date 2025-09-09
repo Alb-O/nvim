@@ -66,6 +66,12 @@ function M.setup()
   try_require(string.format('overrides.%s', name))
   try_require(string.format('overrides.%s.init', name))
 
+  -- Load global LSP configuration for all profiles (unless overridden)
+  local lsp = try_require('lsp')
+  if lsp and lsp.setup then
+    lsp.setup()
+  end
+
   -- Helper commands
   local function list_profiles()
     local out = {}

@@ -14,6 +14,7 @@
     plugins-zk-nvim = { url = "github:mickael-menu/zk-nvim"; flake = false; };
     plugins-gitsigns = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
     plugins-nvim-notify = { url = "github:rcarriga/nvim-notify"; flake = false; };
+    plugins-videre = { url = "github:Owen-Dechow/videre.nvim"; flake = false; };
     # Themes
     plugins-monokai-v2 = { url = "github:khoido2003/monokai-v2.nvim"; flake = false; };
     plugins-gruvdark = { url = "github:darianmorat/gruvdark.nvim"; flake = false; };

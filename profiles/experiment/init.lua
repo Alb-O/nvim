@@ -39,6 +39,7 @@ pcall(function()
   require('which-key').setup()
   require('ibl').setup()
   require('pickers').setup()
+  require('videre').setup()
   require('dashboard').setup({
     theme = 'hyper',
     config = {
@@ -64,5 +65,4 @@ pcall(function()
     sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
     fuzzy = { implementation = 'lua' },
   })
-  require('lsp').setup()
 end)

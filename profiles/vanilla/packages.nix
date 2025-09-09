@@ -1,8 +1,15 @@
 { pkgs, ... }:
 {
-  # Example: keep vanilla minimal and add fugitive explicitly
-  runtimeDeps = with pkgs; [ nixd lua-language-server ripgrep ];
+  # Minimal profile (defaults provide treesitter, lspconfig, plenary, language servers)
+  runtimeDeps = with pkgs; [ ];
   startupPlugins = {
-    general = (with pkgs.vimPlugins; [ mini-nvim nvim-lspconfig lualine-nvim toggleterm-nvim nvim-notify vim-fugitive gitsigns ]);
+    general = with pkgs.vimPlugins; [ 
+      mini-nvim 
+      lualine-nvim 
+      toggleterm-nvim 
+      nvim-notify 
+      vim-fugitive 
+      gitsigns 
+    ];
   };
 }

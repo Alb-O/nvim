@@ -358,6 +358,22 @@
         "type": "github"
       }
     },
+    "plugins-videre": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757272040,
+        "narHash": "sha256-CQHmoKXh1ckKDt85owaEUpkTk0VBihu1ZPSwuOCrxz8=",
+        "owner": "Owen-Dechow",
+        "repo": "videre.nvim",
+        "rev": "1c75b447eb0b34884544090df5eb9be871dced5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Owen-Dechow",
+        "repo": "videre.nvim",
+        "type": "github"
+      }
+    },
     "plugins-zk-nvim": {
       "flake": false,
       "locked": {
@@ -386,6 +402,7 @@
         "plugins-gruvdark": "plugins-gruvdark",
         "plugins-monokai-v2": "plugins-monokai-v2",
         "plugins-nvim-notify": "plugins-nvim-notify",
+        "plugins-videre": "plugins-videre",
         "plugins-zk-nvim": "plugins-zk-nvim",
         "wrapper-manager": "wrapper-manager"
       }

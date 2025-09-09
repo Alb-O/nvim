@@ -1,38 +1,28 @@
 { pkgs, ... }:
 {
-  # Full-featured main profile packages
+  # Full-featured main profile packages (defaults provide treesitter, lspconfig, plenary, language servers)
   runtimeDeps = with pkgs; [
-    nixd
-    lua-language-server
-    vscode-json-languageserver
-    ripgrep
     fzf
     lazygit
     pwgen
     zk
-    rust-analyzer
-    clippy
   ];
 
   startupPlugins = {
-    general = (with pkgs.vimPlugins; [
-      (nvim-treesitter.withAllGrammars)
+    general = with pkgs.vimPlugins; [
       mini-nvim
       noice-nvim
       nui-nvim
-      nvim-lspconfig
       lualine-nvim
       toggleterm-nvim
       sqlite-lua
       nvim-notify
       vim-fugitive
-      plenary-nvim
-    ]) ++ (with pkgs.vimPlugins; [
       fzf-lua
       fzf-lua-frecency
       monokai-v2
       gitsigns
       zk-nvim
-    ]);
+    ];
   };
 }

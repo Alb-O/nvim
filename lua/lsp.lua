@@ -1,10 +1,20 @@
 local M = {}
 
 function M.setup()
-  -- Enable the lsp servers
+  -- Configure JSON LSP server
+  vim.lsp.config('vscode-json-languageserver', {
+    cmd = { 'vscode-json-languageserver', '--stdio' },
+    filetypes = { 'json', 'jsonc' },
+    init_options = {
+      provideFormatter = true,
+    },
+  })
+
+  -- Enable common LSP servers available in all profiles
   vim.lsp.enable('lua_ls')
   vim.lsp.enable('nixd')
   vim.lsp.enable('vscode-json-languageserver')
+  vim.lsp.enable('rust_analyzer')
 
   vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)

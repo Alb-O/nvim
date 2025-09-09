@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
-  # Example: experiment adds Treesitter and UI stack explicitly (overrides defaults)
-  runtimeDeps = with pkgs; [ nixd lua-language-server ripgrep fzf lazygit ];
+  # Experimental profile (defaults provide treesitter, lspconfig, plenary, language servers)
+  runtimeDeps = with pkgs; [ fzf lazygit ];
   startupPlugins = {
-    general = (with pkgs.vimPlugins; [
+    general = with pkgs.vimPlugins; [
       hardtime-nvim
       which-key-nvim
       vscode-nvim
@@ -14,6 +14,7 @@
       dashboard-nvim
       fzf-lua
       fzf-lua-frecency
-    ]);
+      videre
+    ];
   };
 }

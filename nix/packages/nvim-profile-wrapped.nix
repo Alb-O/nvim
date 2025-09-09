@@ -19,14 +19,18 @@ let
     overlays = [ inputs.neovim-nightly-overlay.overlays.default pluginOverlay ];
   };
 
-  # Load profile-specific packages if present, else use defaults
+  # Load profile-specific packages and merge with defaults
   profilePkgFile = let p = "${luaPath}/profiles/${profileName}/packages.nix"; in if builtins.pathExists p then p else null;
   defaults = import "${luaPath}/nix/packages/default-packages.nix" { inherit pkgs; };
   specific = if profilePkgFile != null then import profilePkgFile { inherit pkgs; } else {};
   has = builtins.hasAttr;
-  runtimeDeps = if has "runtimeDeps" specific then specific.runtimeDeps else defaults.runtimeDeps;
-  startPlugins = if has "startupPlugins" specific && has "general" specific.startupPlugins
-                 then specific.startupPlugins.general else defaults.startupPlugins.general;
+  
+  # Merge runtime dependencies (profile-specific ones come first to allow overriding)
+  runtimeDeps = (if has "runtimeDeps" specific then specific.runtimeDeps else []) ++ defaults.runtimeDeps;
+  
+  # Merge startup plugins (profile-specific ones come first to allow overriding)
+  startPlugins = (if has "startupPlugins" specific && has "general" specific.startupPlugins
+                  then specific.startupPlugins.general else []) ++ defaults.startupPlugins.general;
 
   # Build a wrapped Neovim from the (nightly) unwrapped base with our plugins
   nvimPkg = pkgs.wrapNeovim pkgs.neovim-unwrapped {
