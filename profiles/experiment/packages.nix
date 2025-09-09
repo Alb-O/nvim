@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   # Experimental profile (defaults provide treesitter, lspconfig, plenary, language servers)
-  runtimeDeps = with pkgs; [ fzf lazygit ];
+  runtimeDeps = with pkgs; [
+    fzf
+    lazygit
+  ];
   startupPlugins = {
     general = with pkgs.vimPlugins; [
       hardtime-nvim
@@ -11,10 +14,10 @@
       blink-cmp
       friendly-snippets
       indent-blankline-nvim
-      dashboard-nvim
       fzf-lua
       fzf-lua-frecency
       videre
+      alpha-nvim
     ];
   };
 }

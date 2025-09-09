@@ -10,14 +10,15 @@
     clippy
     # Formatters for conform.nvim
     stylua
-    nixpkgs-fmt
+    nixfmt-rfc-style
     prettier
     rustfmt
   ];
 
   startupPlugins = {
     general = with pkgs.vimPlugins; [
-      (nvim-treesitter.withAllGrammars)
+      nvim-treesitter.withAllGrammars
+      mini-icons
       nvim-lspconfig
       plenary-nvim
       conform-nvim
