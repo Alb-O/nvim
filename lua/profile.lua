@@ -45,6 +45,12 @@ local function prepend_paths(profile_root)
   if not string.find(package.path, lua1, 1, true) then
     package.path = table.concat({ lua1, lua2, package.path }, ';')
   end
+  -- Ensure Lua loader can find profile LSP modules (profiles/<name>/lsp/**)
+  local lsp1 = profile_root .. '/lsp/?.lua'
+  local lsp2 = profile_root .. '/lsp/?/init.lua'
+  if not string.find(package.path, lsp1, 1, true) then
+    package.path = table.concat({ lsp1, lsp2, package.path }, ';')
+  end
 end
 
 -- Set up paths and load per-profile init/overrides

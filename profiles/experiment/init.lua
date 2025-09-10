@@ -42,6 +42,7 @@ pcall(function()
 	require("ibl").setup()
 	require("pickers").setup()
 	require("videre").setup()
+	require("clipipe").setup()
 	require("blink.cmp").setup({
 		keymap = { preset = "default" },
 		appearance = { nerd_font_variant = "mono" },

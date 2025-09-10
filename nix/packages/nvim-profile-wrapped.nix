@@ -21,7 +21,7 @@ let
 
   # Load profile-specific packages and merge with defaults
   profilePkgFile = let p = "${luaPath}/profiles/${profileName}/packages.nix"; in if builtins.pathExists p then p else null;
-  defaults = import "${luaPath}/nix/packages/default-packages.nix" { inherit pkgs; };
+  defaults = import "${luaPath}/nix/packages/common-packages.nix" { inherit pkgs; };
   specific = if profilePkgFile != null then import profilePkgFile { inherit pkgs; } else {};
   has = builtins.hasAttr;
   

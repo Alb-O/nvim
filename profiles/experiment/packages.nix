@@ -18,6 +18,7 @@
       fzf-lua-frecency
       videre
       alpha-nvim
+      clipipe
     ];
   };
 }
